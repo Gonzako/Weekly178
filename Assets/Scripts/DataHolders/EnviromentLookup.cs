@@ -39,9 +39,9 @@ public class EnviromentLookup : ScriptableObject
     #endregion
 
     #region UnityCallBacks
-    private void Awake()
+    private void OnEnable()
     {
-        _Unwalkables = new HashSet<Tile>(Unwalkable);
+        _Unwalkables = new HashSet<Tile>(Unwalkable.ToArray());
         _Obstacles = new HashSet<Tile>(PickableObstacles);
         _Traps = new HashSet<Tile>(Traps);
         _Movables = new HashSet<Tile>(Movables);

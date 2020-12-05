@@ -25,7 +25,7 @@ public class heroAI : MonoBehaviour
     private const float dashTime = 0.2f;
 
     [SerializeField]
-    Direction currentDir = Direction.Forward;
+    Direction currentDir = Direction.Up;
 
     [SerializeField]
     Transform visuals = null;
@@ -39,10 +39,17 @@ public class heroAI : MonoBehaviour
     [SerializeField]
     Tilemap backgroundTilemap = null;
 
-    private Tile currentGround { get { return backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
-    private Tile nextGround { get { return backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(transform.position + Vector3.Project(gridHolder.cellSize, currentDir.toVector3()))) as Tile; } }
+    private Tile currentGround { get { return backgroundTilemap.GetTile(
+                                                        backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
+    private Tile nextGround { get { return backgroundTilemap.GetTile
+                                                     (
+                                                     backgroundTilemap.WorldToCell(transform.position) 
+                                                     + currentDir.toVector3Int()
+                                                     ) as Tile; } }
     
-    private Tile nextObstacle { get { return backgroundTilemap.GetTile(obstaclesTilemap.WorldToCell(transform.position + Vector3.Project(gridHolder.cellSize, currentDir.toVector3()))) as Tile; } }
+    private Tile nextObstacle { get { return obstaclesTilemap.GetTile(
+                                                 obstaclesTilemap.WorldToCell(
+                                                    transform.position ) + currentDir.toVector3Int()) as Tile; } }
 
     private Coroutine moveRoutine;
     #endregion
@@ -52,6 +59,7 @@ public class heroAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //transform.position = backgroundTilemap.CellToWorld(Vector3Int.zero)+Vector3.one*0.5f;
     }
 
     // Update is called once per frame
@@ -83,45 +91,47 @@ public class heroAI : MonoBehaviour
 
     private IEnumerator moveCicle()
     {
-        Debug.Log("started a move cicle");
         yield return new WaitForSeconds(waitTime.Value);
         //Collision check
 
 
-        var tile = nextGround;
-        var obstacle = nextObstacle;
-        int i = 0;
-        while (i < 4 && 
-            ((tile == null && table._Unwalkables.Contains(tile)) ||
-             (obstacle == null || !table._Obstacles.Contains(obstacle))))
+        var groundTile = nextGround;
+        var obstacleTile = nextObstacle;
+        var wayBack = currentDir.getNext().getNext();
+        for (int j = 0; j < 4; j++)
         {
-            currentDir = (Direction)(((int)currentDir+1) % 4);
-            tile = nextGround;
-            obstacle = nextObstacle;
-            i++;
-        }
+            if(groundTile != null && !table._Unwalkables.Contains(groundTile))
+            {
+                if(obstacleTile == null && !table._Obstacles.Contains(obstacleTile))
+                {
+
+                    yield return StartCoroutine(moveCharacter());
+                    break;
+                }
+            }
+            Debug.Log("cant walk " + currentDir.ToString() + " with tiles " + groundTile + obstacleTile);
+            currentDir = currentDir.getNext() == wayBack ? wayBack.getNext() : currentDir.getNext();
 
 
-        if(i > 4)
-        {
-            Debug.Log("AI trapped, dont move");
+            if (j == 2)
+            {
+                currentDir = wayBack;
+                Debug.Log("AI trapped, dont move");
+            }
+
+            groundTile = nextGround;
+            obstacleTile = nextObstacle;
         }
-        else
-        {
-            onCharacterMove?.Invoke();
-            yield return StartCoroutine(moveCharacter());
-            Debug.Log("this passed");
-        }
+
         //Decide movement
                     
 
         moveRoutine = StartCoroutine(moveCicle());
-        Debug.Log("tried to start a new move cycle");
     }
 
     private IEnumerator moveCharacter()
     {
-        transform.position += currentDir.toVector3();
+        transform.localPosition += currentDir.toVector3();
         Tween t = visuals.DOMove(transform.position, dashTime).SetEase(Ease.InOutQuint);
         t.SetAutoKill(false);
         t.Play();
@@ -136,28 +146,63 @@ public class heroAI : MonoBehaviour
 
 public enum Direction
 {
-    Forward, Right, Backwards, Left
+    Down, Left, Up, Right
 }
 
 public static class DirectionExtentions
 {
 
-    public static Vector3 toVector3(this Direction n)
+    public static Vector3Int toVector3Int(this Direction n)
     {
         
         switch (n)
         {
-            case Direction.Forward:
-                return Vector3.forward;
-            case Direction.Backwards:
-                return Vector3.back;
+            case Direction.Up:
+                return new Vector3Int(0,1,0);
+            case Direction.Down:
+                return new Vector3Int(0,-1,0);
             case Direction.Left:
-                return Vector3.left;
+                return new Vector3Int(-1, 0, 0);
             case Direction.Right:
-                return Vector3.right;
+                return new Vector3Int(1, 0, 0);
 
         }
         Debug.LogError("Enum Switch Not Working");
-        return Vector3.forward;
+        return Vector3Int.one;
+    }
+    
+    public static Vector3Int toVector3(this Direction n)
+    {
+        
+        switch (n)
+        {
+            case Direction.Up:
+                return new Vector3Int(0, 0, 1);
+            case Direction.Down:
+                return new Vector3Int(0, 0, -1);
+            case Direction.Left:
+                return new Vector3Int(-1, 0, 0);
+            case Direction.Right:
+                return new Vector3Int(1, 0, 0);
+
+        }
+        Debug.LogError("Enum Switch Not Working");
+        return Vector3Int.one;
+    }
+
+    public static Direction getNext(this Direction n)
+    {
+        switch (n)
+        {
+            case Direction.Down:
+                return Direction.Right;
+            case Direction.Left:
+                return Direction.Down;
+            case Direction.Up:
+                return Direction.Left;
+            case Direction.Right:
+                return Direction.Up;
+        }
+        return Direction.Up;
     }
 }
