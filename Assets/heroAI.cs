@@ -40,9 +40,11 @@ public class heroAI : MonoBehaviour
     Tilemap backgroundTilemap = null;
 
     private Tile currentGround { get { return backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
-    private Tile nextGround { get { return backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(transform.position+currentDir.toVector3())) as Tile; } }
+    private Tile nextGround { get { return backgroundTilemap.GetTile(backgroundTilemap.WorldToCell(transform.position + Vector3.Project(gridHolder.cellSize, currentDir.toVector3()))) as Tile; } }
+    
+    private Tile nextObstacle { get { return backgroundTilemap.GetTile(obstaclesTilemap.WorldToCell(transform.position + Vector3.Project(gridHolder.cellSize, currentDir.toVector3()))) as Tile; } }
 
-    private Tile nextObstacle { get { return backgroundTilemap.GetTile(obstaclesTilemap.WorldToCell(transform.position + currentDir.toVector3())) as Tile; } }
+    private Coroutine moveRoutine;
     #endregion
 
     #region UnityCallBacks
@@ -50,7 +52,6 @@ public class heroAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -61,9 +62,14 @@ public class heroAI : MonoBehaviour
 
     void OnEnable()
     {
- 
+        moveRoutine = StartCoroutine(moveCicle());
     }
 
+
+    private void OnDisable()
+    {
+        StopCoroutine(moveRoutine);
+    }
     #endregion
 
     #region PublicMethods
@@ -77,17 +83,21 @@ public class heroAI : MonoBehaviour
 
     private IEnumerator moveCicle()
     {
+        Debug.Log("started a move cicle");
         yield return new WaitForSeconds(waitTime.Value);
         //Collision check
+
 
         var tile = nextGround;
         var obstacle = nextObstacle;
         int i = 0;
-        while (i < 4 && ((tile ? table._Unwalkables.Contains(tile) : true) || (obstacle ? !table._Obstacles.Contains(obstacle) : false)))
+        while (i < 4 && 
+            ((tile == null && table._Unwalkables.Contains(tile)) ||
+             (obstacle == null || !table._Obstacles.Contains(obstacle))))
         {
-            currentDir += 1;
-            currentDir = (Direction)((int)currentDir % 4);
+            currentDir = (Direction)(((int)currentDir+1) % 4);
             tile = nextGround;
+            obstacle = nextObstacle;
             i++;
         }
 
@@ -98,14 +108,15 @@ public class heroAI : MonoBehaviour
         }
         else
         {
-            yield return moveCharacter();
+            onCharacterMove?.Invoke();
+            yield return StartCoroutine(moveCharacter());
+            Debug.Log("this passed");
         }
         //Decide movement
+                    
 
-
-
-
-        yield return moveCicle();
+        moveRoutine = StartCoroutine(moveCicle());
+        Debug.Log("tried to start a new move cycle");
     }
 
     private IEnumerator moveCharacter()
@@ -114,7 +125,7 @@ public class heroAI : MonoBehaviour
         Tween t = visuals.DOMove(transform.position, dashTime).SetEase(Ease.InOutQuint);
         t.SetAutoKill(false);
         t.Play();
-        yield return new WaitUntil(()=>!t.active);
+        yield return new WaitUntil(()=>t.IsComplete());
         t.Kill();
         visuals.position = transform.position;
     }
@@ -138,16 +149,13 @@ public static class DirectionExtentions
         {
             case Direction.Forward:
                 return Vector3.forward;
-                break;
             case Direction.Backwards:
                 return Vector3.back;
-                break;
             case Direction.Left:
                 return Vector3.left;
-                break;
             case Direction.Right:
                 return Vector3.right;
-                break;
+
         }
         Debug.LogError("Enum Switch Not Working");
         return Vector3.forward;
