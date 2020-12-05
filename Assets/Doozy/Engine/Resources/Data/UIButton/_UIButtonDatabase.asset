@@ -17,6 +17,10 @@ MonoBehaviour:
   - Custom
   - Example
   - General
+  - SlideNavigation
+  - Popups
   Categories:
   - {fileID: 11400000, guid: 40f9e81ff80114a47a3721228ba749ed, type: 2}
   - {fileID: 11400000, guid: 1a85ff6e3bd6fbe489c3acf7d12b566c, type: 2}
+  - {fileID: 11400000, guid: 51751888f373dbc4a9c0e027066ee1de, type: 2}
+  - {fileID: 11400000, guid: 665058fc378054d4b858dfe5fc70eab0, type: 2}
