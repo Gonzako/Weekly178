@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickableObstacles: []
   Unwalkable:
-  - {fileID: 11400000, guid: 3a2d90c0fce7aa74d9d528f232a8a747, type: 2}
+  - {fileID: 11400000, guid: 27b1e8dd4599cd14385a4507024218a0, type: 2}
+  - {fileID: 11400000, guid: 6a288630284beca419e045273e5f956c, type: 2}
   Traps: []
   Movables: []
