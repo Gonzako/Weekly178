@@ -104,7 +104,7 @@ public class heroAI : MonoBehaviour
         {
             if(groundTile != null && !table._Unwalkables.Contains(groundTile))
             {
-                if(obstacleTile == null || !table._Obstacles.Contains(obstacleTile))
+                if(obstacleTile == null /* || !table._Obstacles.Contains(obstacleTile)*/)
                 {
 
                     yield return StartCoroutine(moveCharacter());
