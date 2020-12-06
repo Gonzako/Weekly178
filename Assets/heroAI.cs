@@ -43,13 +43,13 @@ public class heroAI : MonoBehaviour
                                                         backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
     private Tile nextGround { get { return backgroundTilemap.GetTile
                                                      (
-                                                     backgroundTilemap.WorldToCell(transform.position) 
+                                                     backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one-Vector3.up)) 
                                                      + currentDir.toVector3Int()
                                                      ) as Tile; } }
     
     private Tile nextObstacle { get { return obstaclesTilemap.GetTile(
                                                  obstaclesTilemap.WorldToCell(
-                                                    transform.position ) + currentDir.toVector3Int()) as Tile; } }
+                                                    Vector3.Scale(transform.position, Vector3.one - Vector3.up)) + currentDir.toVector3Int()) as Tile; } }
 
     private Coroutine moveRoutine;
     #endregion
