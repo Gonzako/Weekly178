@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca844f727e37cc841a9adfc0f2b4ff6a, type: 3}
   m_Name: EnviromentTable
   m_EditorClassIdentifier: 
-  PickableObstacles: []
+  PickableObstacles:
+  - {fileID: 11400000, guid: ff6dd740d5907a7419005698a037167d, type: 2}
+  - {fileID: 11400000, guid: d767b588bb244954bb201ed613295f4c, type: 2}
   Unwalkable:
   - {fileID: 11400000, guid: 27b1e8dd4599cd14385a4507024218a0, type: 2}
   - {fileID: 11400000, guid: 6a288630284beca419e045273e5f956c, type: 2}
