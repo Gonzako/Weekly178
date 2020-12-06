@@ -17,12 +17,13 @@ public class heroAI : MonoBehaviour
 
     #region PublicFields
     public ScriptableObjectArchitecture.FloatVariable waitTime;
+    public Ease movementEase;
 
     public static event Action onCharacterMove;
     #endregion
 
     #region PrivateFields
-    private const float dashTime = 0.2f;
+    private const float dashTime = 0.5f;
 
     [SerializeField]
     Direction currentDir = Direction.Up;
@@ -43,13 +44,13 @@ public class heroAI : MonoBehaviour
                                                         backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
     private Tile nextGround { get { return backgroundTilemap.GetTile
                                                      (
-                                                     backgroundTilemap.WorldToCell(transform.position) 
+                                                     backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one-Vector3.up)) 
                                                      + currentDir.toVector3Int()
                                                      ) as Tile; } }
     
     private Tile nextObstacle { get { return obstaclesTilemap.GetTile(
                                                  obstaclesTilemap.WorldToCell(
-                                                    transform.position ) + currentDir.toVector3Int()) as Tile; } }
+                                                    Vector3.Scale(transform.position, Vector3.one - Vector3.up)) + currentDir.toVector3Int()) as Tile; } }
 
     private Coroutine moveRoutine;
     #endregion
@@ -60,6 +61,7 @@ public class heroAI : MonoBehaviour
     void Start()
     {
         //transform.position = backgroundTilemap.CellToWorld(Vector3Int.zero)+Vector3.one*0.5f;
+        
     }
 
     // Update is called once per frame
@@ -102,7 +104,7 @@ public class heroAI : MonoBehaviour
         {
             if(groundTile != null && !table._Unwalkables.Contains(groundTile))
             {
-                if(obstacleTile == null && !table._Obstacles.Contains(obstacleTile))
+                if(obstacleTile == null /* || !table._Obstacles.Contains(obstacleTile)*/)
                 {
 
                     yield return StartCoroutine(moveCharacter());
@@ -131,8 +133,16 @@ public class heroAI : MonoBehaviour
 
     private IEnumerator moveCharacter()
     {
+        if(currentDir == Direction.Left)
+        {
+            visuals.DOScaleX(-0.5f, dashTime*0.8f).SetEase(movementEase);
+        }
+        else if(currentDir == Direction.Right)
+        {
+            visuals.DOScaleX(0.5f, dashTime * 0.7f).SetEase(movementEase);
+        }
         transform.localPosition += currentDir.toVector3();
-        Tween t = visuals.DOMove(transform.position, dashTime).SetEase(Ease.InOutQuint);
+        Tween t = visuals.DOMove(transform.position, dashTime).SetEase(movementEase);
         t.SetAutoKill(false);
         t.Play();
         yield return new WaitUntil(()=>t.IsComplete());
