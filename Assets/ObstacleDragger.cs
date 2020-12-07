@@ -25,10 +25,13 @@ public class ObstacleDragger : MonoBehaviour
 
     [SerializeField]
     Tilemap tileMapObstacle;
+    [SerializeField]
+    Tilemap ground;
     Camera currentCam;
     Plane obstaclePlane;
     Tile removedTile;
     bool dragging = false;
+    Vector3Int previousCellPos;
     #endregion
 
     #region UnityCallBacks
@@ -55,6 +58,7 @@ public class ObstacleDragger : MonoBehaviour
             var cellPos = tileMapObstacle.WorldToCell(point);
 
             var cell = tileMapObstacle.GetTile(cellPos) as Tile;
+            previousCellPos = cellPos;
             removedTile = cell;
 
             if (cell != null)
@@ -77,15 +81,31 @@ public class ObstacleDragger : MonoBehaviour
 
             var cellPos = tileMapObstacle.WorldToCell(point);
 
-            tileMapObstacle.SetTile(cellPos, removedTile);
+            if (isLegalTile(cellPos))
+            {
 
-            onDropTile?.Invoke(removedTile, point);
+                tileMapObstacle.SetTile(cellPos, removedTile);
+
+                onDropTile?.Invoke(removedTile, point);
+            }
+            else
+            {
+                tileMapObstacle.SetTile(previousCellPos, removedTile);
+
+                onDropTile?.Invoke(removedTile, tileMapObstacle.CellToWorld(previousCellPos));
+            }
+
 
 
             removedTile = null;
             dragging = false;
 
         }
+    }
+
+    public bool isLegalTile(Vector3Int cellPos)
+    {
+        return !isNearPlayer(cellPos) && tileMapObstacle.GetTile(cellPos) == null && ground.GetTile(cellPos) != null;
     }
 
     void OnEnable()
@@ -101,6 +121,9 @@ public class ObstacleDragger : MonoBehaviour
 
 
     #region PrivateMethods
-
+    private bool isNearPlayer(Vector3Int desired)
+    {
+        return desired.x == heroAI.currentCell.x && desired.y == heroAI.currentCell.y;
+    }
     #endregion
 }

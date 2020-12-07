@@ -19,6 +19,7 @@ public class heroAI : MonoBehaviour
     public ScriptableObjectArchitecture.FloatVariable waitTime;
     public Ease movementEase;
 
+    public static Vector3Int currentCell;
     public static event Action onCharacterMove;
     #endregion
 
@@ -60,7 +61,7 @@ public class heroAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //transform.position = backgroundTilemap.CellToWorld(Vector3Int.zero)+Vector3.one*0.5f;
+        currentCell = backgroundTilemap.WorldToCell(transform.position);
         
     }
 
@@ -142,9 +143,12 @@ public class heroAI : MonoBehaviour
             visuals.DOScaleX(Mathf.Abs(visuals.localScale.x), dashTime * 0.7f).SetEase(movementEase);
         }
         transform.localPosition += currentDir.toVector3();
+        currentCell = backgroundTilemap.WorldToCell(transform.position);
+        currentCell.z = 0;
         Tween t = visuals.DOMove(transform.position, dashTime).SetEase(movementEase);
         t.SetAutoKill(false);
         t.Play();
+
         yield return new WaitUntil(()=>t.IsComplete());
         t.Kill();
         visuals.position = transform.position;

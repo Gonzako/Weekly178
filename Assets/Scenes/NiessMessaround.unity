@@ -1343,6 +1343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMapObstacle: {fileID: 1773146716}
+  ground: {fileID: 590822081}
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
@@ -1443,6 +1444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffc26c71445d4141bd3e9e2bf555ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deniedColor: {r: 1, g: 0, b: 0, a: 0.5019608}
   targetPreview: {fileID: 1773146716}
   previewer: {fileID: 2140636451}
 --- !u!1 &1773146713

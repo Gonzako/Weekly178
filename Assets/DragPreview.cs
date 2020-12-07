@@ -16,7 +16,7 @@ public class DragPreview : MonoBehaviour
 {
 
     #region PublicFields
-
+    public Color deniedColor;
 
     #endregion
 
@@ -29,6 +29,8 @@ public class DragPreview : MonoBehaviour
     SpriteRenderer previewer;
     Camera currentCam;
     Plane obstaclePlane;
+    ObstacleDragger dragger;
+    private Color defaultColor;
     #endregion
 
     #region UnityCallBacks
@@ -37,9 +39,10 @@ public class DragPreview : MonoBehaviour
     void Start()
     {
         currentCam = GetComponent<Camera>();
-
+        dragger = GetComponent<ObstacleDragger>();
         obstaclePlane = new Plane(Vector3.up, targetPreview.transform.position);
         previewer.sharedMaterial.SetFloat("_Preview", 1);
+        defaultColor = previewer.sharedMaterial.GetColor("_Color");
     }
 
     // Update is called once per frame
@@ -54,8 +57,9 @@ public class DragPreview : MonoBehaviour
         var cellPos = targetPreview.WorldToCell(point);
         
         var tile = targetPreview.GetTile(cellPos) as Tile;
-        
-        previewer.transform.localPosition = (targetPreview.CellToLocal(cellPos) + targetPreview.tileAnchor) + targetPreview.orientationMatrix.MultiplyPoint(Vector3.zero)*1.1f;
+
+        previewer.transform.localPosition = (targetPreview.CellToLocal(cellPos) + targetPreview.tileAnchor) +
+            targetPreview.orientationMatrix.MultiplyPoint(Vector3.zero) * (!dragging ? 1.1f : 0.9f);
         
         if (!dragging)
         {
@@ -63,6 +67,16 @@ public class DragPreview : MonoBehaviour
                 previewer.sprite = tile.sprite;
             else
                 previewer.sprite = null; 
+        } else
+        {
+            if (dragger.isLegalTile(cellPos))
+            {
+                previewer.sharedMaterial.SetColor("_Color", defaultColor);
+            }
+            else
+            {
+                previewer.sharedMaterial.SetColor("_Color", deniedColor);
+            }
         }
     }
 
@@ -106,7 +120,6 @@ public class DragPreview : MonoBehaviour
         previewer.receiveShadows = false;
         previewer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         previewer.sharedMaterial.SetFloat("Preview", 1);
-
 
     }
     #endregion
