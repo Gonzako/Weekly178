@@ -19,11 +19,12 @@ public class heroAI : MonoBehaviour
     public ScriptableObjectArchitecture.FloatVariable waitTime;
     public Ease movementEase;
 
+    public static Vector3Int currentCell;
     public static event Action onCharacterMove;
     #endregion
 
     #region PrivateFields
-    private const float dashTime = 0.5f;
+    private const float dashTime = 0.6f;
 
     [SerializeField]
     Direction currentDir = Direction.Up;
@@ -39,6 +40,9 @@ public class heroAI : MonoBehaviour
     Tilemap obstaclesTilemap = null;
     [SerializeField]
     Tilemap backgroundTilemap = null;
+
+    [SerializeField]
+    Animator animator;
 
     private Tile currentGround { get { return backgroundTilemap.GetTile(
                                                         backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
@@ -60,14 +64,15 @@ public class heroAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //transform.position = backgroundTilemap.CellToWorld(Vector3Int.zero)+Vector3.one*0.5f;
+        currentCell = backgroundTilemap.WorldToCell(transform.position);
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
+        animator.SetFloat("RandomValue", UnityEngine.Random.value);
     }
 
     void OnEnable()
@@ -80,6 +85,8 @@ public class heroAI : MonoBehaviour
     {
         StopCoroutine(moveRoutine);
     }
+
+
     #endregion
 
     #region PublicMethods
@@ -133,20 +140,26 @@ public class heroAI : MonoBehaviour
 
     private IEnumerator moveCharacter()
     {
+
+        animator.SetBool("Walking", true);
         if(currentDir == Direction.Left)
         {
-            visuals.DOScaleX(-0.5f, dashTime*0.8f).SetEase(movementEase);
+            visuals.DOScaleX(-Mathf.Abs(visuals.localScale.x), dashTime*0.8f).SetEase(movementEase);
         }
         else if(currentDir == Direction.Right)
         {
-            visuals.DOScaleX(0.5f, dashTime * 0.7f).SetEase(movementEase);
+            visuals.DOScaleX(Mathf.Abs(visuals.localScale.x), dashTime * 0.7f).SetEase(movementEase);
         }
         transform.localPosition += currentDir.toVector3();
+        currentCell = backgroundTilemap.WorldToCell(transform.position);
+        currentCell.z = 0;
         Tween t = visuals.DOMove(transform.position, dashTime).SetEase(movementEase);
         t.SetAutoKill(false);
         t.Play();
+
         yield return new WaitUntil(()=>t.IsComplete());
         t.Kill();
+        animator.SetBool("Walking", false);
         visuals.position = transform.position;
     }
 
