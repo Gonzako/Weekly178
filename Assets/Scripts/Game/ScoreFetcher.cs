@@ -3,25 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using ScriptableObjectArchitecture;
 
 
 public class ScoreFetcher : MonoBehaviour
 {
     [SerializeField] private HighscoreVariable _highscores;
     [SerializeField] private HighscoreEvent onDataUpdated;
+    [SerializeField] private GameData _data;
 
-    private void Start()
+    [SerializeField] private string _api = "https://us-central1-highscore-jammer.cloudfunctions.net/webApi/api/v1";
+
+    public void GetHighScore()
     {
-        GetHighScore();
-    }
-    private void GetHighScore()
-    {
-        var api = "http://localhost:5001/highscore-jammer/us-central1/webApi/api/v1";
-        RestClient.GetArray<HighScore>(api + "/scores").Then(res => {
+        Debug.Log("test");
+        RestClient.GetArray<HighScore>(_api + "/scores/"+_data.currentLevel.scene_id).Then(res => {
             Debug.Log(res);
             _highscores._scores.AddRange(res);
             onDataUpdated.Raise(_highscores);         
         });  
+    }
+
+    public void AddHighScore(int score)
+    {
+        Debug.Log("adding " + score);
+        HighScore hscore = new HighScore("tester", score, _data.currentLevel.scene_id);
+        RestClient.Post<HighScore>((_api + "/scores/new"), hscore);
     }
 }
 

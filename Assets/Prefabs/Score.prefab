@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 286403967613935413}
   - component: {fileID: 7829697053508098870}
   m_Layer: 0
-  m_Name: Text (1)
+  m_Name: Nickname
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1974140865629499698}
   - component: {fileID: 10990769179836652}
   - component: {fileID: 7737752686497615213}
+  - component: {fileID: 4419242451738062360}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -181,6 +182,21 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &4419242451738062360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246568337072381729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d22936bcab2fd546903b80cc4cf72c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {fileID: 0}
+  nickname: {fileID: 7829697053508098870}
+  points: {fileID: 6127542551796569672}
 --- !u!1 &6268117751773838193
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +209,7 @@ GameObject:
   - component: {fileID: 2285176132827395105}
   - component: {fileID: 7650166105599341937}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +274,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '#
+
+'
 --- !u!1 &6513478125543105558
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +289,7 @@ GameObject:
   - component: {fileID: 687779354783619102}
   - component: {fileID: 6127542551796569672}
   m_Layer: 0
-  m_Name: Text (2)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -154,7 +154,7 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: fbecb697-e862-48e4-9f2c-7b43cd7beb63
-  m_lastModified: 132516825891905663
+  m_lastModified: 132518373990625701
 --- !u!114 &2752413530389574732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,87 +367,6 @@ MonoBehaviour:
   m_name: Exit
   m_notes: 
   ErrorNodeIsNotConnected: 0
---- !u!114 &7383294441776813398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97aebf4d1c7c46d9843e5c78fd464d44, type: 3}
-  m_Name: GameEventNode
-  m_EditorClassIdentifier: 
-  ErrorNodeNameIsEmpty: 0
-  ErrorDuplicateNameFoundInGraph: 0
-  m_inputSockets:
-  - m_connectionMode: 1
-    m_connections:
-    - m_inputConnectionPoint: {x: 202, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: 9a8c56cd-1e41-4db6-9169-83b53184e622
-      m_inputNodeId: c4b34fd9-5c7b-4d91-a329-dda0693c9ef0
-      m_inputSocketId: 31ac23eb-5c73-4e0c-8d93-2fa24f56c85a
-      m_outputNodeId: 6b025f17-22af-4cec-b4d7-c6f61634d6e2
-      m_outputSocketId: 71c545a5-13d1-4a26-9b13-115fccc9db6a
-    m_connectionPoints:
-    - {x: -2, y: 4}
-    - {x: 202, y: 4}
-    m_direction: 0
-    m_canBeDeleted: 0
-    m_canBeReordered: 0
-    m_curveModifier: 0
-    m_height: 24
-    m_width: 216
-    m_x: 0
-    m_y: 38
-    m_id: 31ac23eb-5c73-4e0c-8d93-2fa24f56c85a
-    m_nodeId: c4b34fd9-5c7b-4d91-a329-dda0693c9ef0
-    m_socketName: InputSocket_0
-    m_value: '{}'
-    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_outputSockets:
-  - m_connectionMode: 0
-    m_connections: []
-    m_connectionPoints:
-    - {x: -2, y: 4}
-    - {x: 202, y: 4}
-    m_direction: 1
-    m_canBeDeleted: 0
-    m_canBeReordered: 0
-    m_curveModifier: 0
-    m_height: 24
-    m_width: 216
-    m_x: 0
-    m_y: 62
-    m_id: 48285468-6c59-4a30-8c3e-c2643930bf7b
-    m_nodeId: c4b34fd9-5c7b-4d91-a329-dda0693c9ef0
-    m_socketName: OutputSocket_0
-    m_value: '{}'
-    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_nodeType: 4
-  m_allowDuplicateNodeName: 0
-  m_allowEmptyNodeName: 0
-  m_canBeDeleted: 1
-  m_debugMode: 0
-  m_useFixedUpdate: 0
-  m_useLateUpdate: 0
-  m_useUpdate: 0
-  m_height: 156
-  m_width: 216
-  m_x: -82.49781
-  m_y: 152.06024
-  m_minimumInputSocketsCount: 1
-  m_minimumOutputSocketsCount: 1
-  m_graphId: fbecb697-e862-48e4-9f2c-7b43cd7beb63
-  m_id: c4b34fd9-5c7b-4d91-a329-dda0693c9ef0
-  m_name: Send Game Events
-  m_notes: 
-  ErrorNotSendingAnyGameEvent: 1
-  GameEvent: 
 --- !u!114 &8766964234700653550
 MonoBehaviour:
   m_ObjectHideFlags: 1
