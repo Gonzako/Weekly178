@@ -113,7 +113,7 @@ public class DragPreview : MonoBehaviour
         previewer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
     }
 
-    private void ObstacleDragger_onDropTile(Tile arg1, Vector3 arg2)
+    private void ObstacleDragger_onDropTile(Tile obj, Vector3 point)
     {
         dragging = false;
 

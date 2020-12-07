@@ -273,6 +273,7 @@ MonoBehaviour:
   gridHolder: {fileID: 1683759688}
   obstaclesTilemap: {fileID: 1773146716}
   backgroundTilemap: {fileID: 590822081}
+  animator: {fileID: 46198920}
 --- !u!1 &590822078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMapObstacle: {fileID: 1773146716}
+  ground: {fileID: 590822081}
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
@@ -1443,6 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffc26c71445d4141bd3e9e2bf555ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deniedColor: {r: 1, g: 0, b: 0, a: 0.5019608}
   targetPreview: {fileID: 1773146716}
   previewer: {fileID: 2140636451}
 --- !u!1 &1773146713
@@ -1765,7 +1768,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 0.28235295}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -1900,7 +1903,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 94c9fee23999bf04599f4be5f1fde020, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.89411765}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

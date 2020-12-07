@@ -24,7 +24,7 @@ public class heroAI : MonoBehaviour
     #endregion
 
     #region PrivateFields
-    private const float dashTime = 0.5f;
+    private const float dashTime = 0.6f;
 
     [SerializeField]
     Direction currentDir = Direction.Up;
@@ -40,6 +40,9 @@ public class heroAI : MonoBehaviour
     Tilemap obstaclesTilemap = null;
     [SerializeField]
     Tilemap backgroundTilemap = null;
+
+    [SerializeField]
+    Animator animator;
 
     private Tile currentGround { get { return backgroundTilemap.GetTile(
                                                         backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
@@ -66,9 +69,10 @@ public class heroAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
+        animator.SetFloat("RandomValue", UnityEngine.Random.value);
     }
 
     void OnEnable()
@@ -81,6 +85,8 @@ public class heroAI : MonoBehaviour
     {
         StopCoroutine(moveRoutine);
     }
+
+
     #endregion
 
     #region PublicMethods
@@ -134,6 +140,8 @@ public class heroAI : MonoBehaviour
 
     private IEnumerator moveCharacter()
     {
+
+        animator.SetBool("Walking", true);
         if(currentDir == Direction.Left)
         {
             visuals.DOScaleX(-Mathf.Abs(visuals.localScale.x), dashTime*0.8f).SetEase(movementEase);
@@ -151,6 +159,7 @@ public class heroAI : MonoBehaviour
 
         yield return new WaitUntil(()=>t.IsComplete());
         t.Kill();
+        animator.SetBool("Walking", false);
         visuals.position = transform.position;
     }
 

@@ -273,6 +273,7 @@ MonoBehaviour:
   gridHolder: {fileID: 1683759688}
   obstaclesTilemap: {fileID: 1773146716}
   backgroundTilemap: {fileID: 590822081}
+  animator: {fileID: 46198920}
 --- !u!1 &590822078
 GameObject:
   m_ObjectHideFlags: 0
