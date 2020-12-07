@@ -135,11 +135,11 @@ public class heroAI : MonoBehaviour
     {
         if(currentDir == Direction.Left)
         {
-            visuals.DOScaleX(-0.5f, dashTime*0.8f).SetEase(movementEase);
+            visuals.DOScaleX(-Mathf.Abs(visuals.localScale.x), dashTime*0.8f).SetEase(movementEase);
         }
         else if(currentDir == Direction.Right)
         {
-            visuals.DOScaleX(0.5f, dashTime * 0.7f).SetEase(movementEase);
+            visuals.DOScaleX(Mathf.Abs(visuals.localScale.x), dashTime * 0.7f).SetEase(movementEase);
         }
         transform.localPosition += currentDir.toVector3();
         Tween t = visuals.DOMove(transform.position, dashTime).SetEase(movementEase);

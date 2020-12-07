@@ -58,11 +58,13 @@ public class ObstacleDragger : MonoBehaviour
             removedTile = cell;
 
             if (cell != null)
+            {
                 onPickupTile?.Invoke(cell);
 
-            tileMapObstacle.SetTile(cellPos, null);
+                tileMapObstacle.SetTile(cellPos, null);
 
-            dragging = true;
+                dragging = true;
+            }
             
         }
         if(Input.GetMouseButtonUp(0) && dragging)
@@ -79,9 +81,9 @@ public class ObstacleDragger : MonoBehaviour
 
             onDropTile?.Invoke(removedTile, point);
 
-            dragging = false;
 
             removedTile = null;
+            dragging = false;
 
         }
     }
