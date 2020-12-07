@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baec154247b223d4a9b1afe90aa2cf2c, type: 3}
-  m_Name: SceneCollection
+  m_Script: {fileID: 11500000, guid: d580c6067d50af34c84533e8b4273218, type: 3}
+  m_Name: GameData
   m_EditorClassIdentifier: 
-  _list:
-  - _sceneName: Assets/Scenes/test_gamemanager.unity
-    _sceneIndex: -1
-    _isSceneEnabled: 0
+  currentLevel: {fileID: 0}
