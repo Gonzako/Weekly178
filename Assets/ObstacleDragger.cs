@@ -22,6 +22,8 @@ public class ObstacleDragger : MonoBehaviour
     #endregion
 
     #region PrivateFields
+    [SerializeField]
+    EnviromentLookup table;
 
     [SerializeField]
     Tilemap tileMapObstacle;
@@ -105,7 +107,9 @@ public class ObstacleDragger : MonoBehaviour
 
     public bool isLegalTile(Vector3Int cellPos)
     {
-        return !isNearPlayer(cellPos) && tileMapObstacle.GetTile(cellPos) == null && ground.GetTile(cellPos) != null;
+        return !isNearPlayer(cellPos) && tileMapObstacle.GetTile(cellPos) == null
+                                      && ground.GetTile(cellPos) != null
+                                      && !table._Unwalkables.Contains(ground.GetTile(cellPos) as Tile);
     }
 
     void OnEnable()

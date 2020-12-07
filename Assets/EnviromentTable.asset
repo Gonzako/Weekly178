@@ -18,5 +18,21 @@ MonoBehaviour:
   Unwalkable:
   - {fileID: 11400000, guid: 27b1e8dd4599cd14385a4507024218a0, type: 2}
   - {fileID: 11400000, guid: 6a288630284beca419e045273e5f956c, type: 2}
+  - {fileID: 11400000, guid: 86feddb30acbc3a4a8b3671366f42d46, type: 2}
+  - {fileID: 11400000, guid: bd42b9c84b03f3946a31493882409d8f, type: 2}
+  - {fileID: 11400000, guid: 0c5f5024a7a1697499599ebd68efb588, type: 2}
+  - {fileID: 11400000, guid: 9b440f05c5c32c14c9a867f94cb5b07a, type: 2}
+  - {fileID: 11400000, guid: 6521a6110f962d84fab65383e11b60f3, type: 2}
+  - {fileID: 11400000, guid: 8292a8b8748dd114ca6e66f18c0efefe, type: 2}
+  - {fileID: 11400000, guid: 8f2a2d77816425d4b8be3415847fd953, type: 2}
+  - {fileID: 11400000, guid: a8feedea0a28e584e9d7dcbe9b1bb67c, type: 2}
+  - {fileID: 11400000, guid: 7129f43ba6ee4284391151168fa81c2f, type: 2}
+  - {fileID: 11400000, guid: 1da92f49a1ba2384d8210c7fcd3910ab, type: 2}
+  - {fileID: 11400000, guid: 90987c444771e1e4eab67dfbc8482417, type: 2}
+  - {fileID: 11400000, guid: 869a22fca50b3054a95a20a8b9545711, type: 2}
+  - {fileID: 11400000, guid: 035068e9600e48249816c0e15b33ad78, type: 2}
+  - {fileID: 11400000, guid: 265d195c0f3a28d41ba088e535dea465, type: 2}
+  - {fileID: 11400000, guid: 042539e3da017294dac71b3a48a6ebca, type: 2}
+  - {fileID: 11400000, guid: 097e1e5c88095404aaead97ef824d8da, type: 2}
   Traps: []
   Movables: []

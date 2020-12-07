@@ -17,6 +17,7 @@ public class heroAI : MonoBehaviour
 
     #region PublicFields
     public ScriptableObjectArchitecture.FloatVariable waitTime;
+    public ScriptableObjectArchitecture.FloatVariable DashTime;
     public Ease movementEase;
 
     public static Vector3Int currentCell;
@@ -24,7 +25,7 @@ public class heroAI : MonoBehaviour
     #endregion
 
     #region PrivateFields
-    private const float dashTime = 2f;
+    private float dashTime { get { return DashTime.Value; } }
 
     [SerializeField]
     Direction currentDir = Direction.Up;
@@ -159,7 +160,7 @@ public class heroAI : MonoBehaviour
 
         yield return new WaitUntil(()=>t.IsComplete());
         t.Kill();
-        animator.SetBool("Walking", false);
+        animator.SetBool("Walking", true);
         visuals.position = transform.position;
     }
 
