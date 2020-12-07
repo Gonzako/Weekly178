@@ -22,8 +22,6 @@ public class DragPreview : MonoBehaviour
 
     #region PrivateFields
     [SerializeField]
-    EnviromentLookup table;
-    [SerializeField]
     Tilemap targetPreview;
     bool dragging = false;
     [SerializeField]
