@@ -24,7 +24,7 @@ public class heroAI : MonoBehaviour
     #endregion
 
     #region PrivateFields
-    private const float dashTime = 0.6f;
+    private const float dashTime = 2f;
 
     [SerializeField]
     Direction currentDir = Direction.Up;
