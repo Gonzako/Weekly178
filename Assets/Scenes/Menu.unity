@@ -4029,6 +4029,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2696404904518249867, guid: 691adc0f797836e409dc86ec316ebaa8,
+        type: 3}
+      propertyPath: m_Text
+      value: Quit
+      objectReference: {fileID: 0}
     - target: {fileID: 4333296703488746210, guid: 691adc0f797836e409dc86ec316ebaa8,
         type: 3}
       propertyPath: m_LocalPosition.x
