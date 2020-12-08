@@ -141,7 +141,6 @@ public class heroAI : MonoBehaviour
 
     private IEnumerator moveCharacter()
     {
-
         animator.SetBool("Walking", true);
         if(currentDir == Direction.Left)
         {
@@ -151,8 +150,13 @@ public class heroAI : MonoBehaviour
         {
             visuals.DOScaleX(Mathf.Abs(visuals.localScale.x), dashTime * 0.7f).SetEase(movementEase);
         }
+
+
+
         transform.localPosition += currentDir.toVector3();
+
         currentCell = backgroundTilemap.WorldToCell(transform.position);
+
         currentCell.z = 0;
         Tween t = visuals.DOMove(transform.position, dashTime).SetEase(movementEase);
         t.SetAutoKill(false);

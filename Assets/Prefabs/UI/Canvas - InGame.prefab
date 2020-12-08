@@ -932,8 +932,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 196624214}
   m_HandleRect: {fileID: 196624213}
   m_Direction: 2
-  m_Value: 0.9999874
-  m_Size: 0.8866668
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6820,7 +6820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00003948007, y: 0.00040666657}
+  m_AnchoredPosition: {x: 0.00003948007, y: -0.000019175}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2291789369165028913
@@ -9387,11 +9387,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -9433,7 +9433,7 @@ MonoBehaviour:
   StartAlpha: 1
   CanvasName: InGame
   CustomCanvasName: 0
-  DontDestroyCanvasOnLoad: 1
+  DontDestroyCanvasOnLoad: 0
 --- !u!1001 &126374689660655666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9749,7 +9749,7 @@ PrefabInstance:
     - target: {fileID: 9147166574558208458, guid: 7d1652f6244b2d74780539d21de6f220,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.7498932
+      value: -1.7498779
       objectReference: {fileID: 0}
     - target: {fileID: 9147166574558208458, guid: 7d1652f6244b2d74780539d21de6f220,
         type: 3}
