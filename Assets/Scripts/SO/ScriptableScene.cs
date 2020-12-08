@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,6 @@ using UnityEngine.SceneManagement;
 public class ScriptableScene : ScriptableObject
 {
     public Sprite preview;
-    public Scene scene;
+    public SceneAsset scene;
     public string scene_id = Guid.NewGuid().ToString();
 }

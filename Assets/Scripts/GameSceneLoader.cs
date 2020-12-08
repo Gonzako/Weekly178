@@ -28,6 +28,6 @@ public class GameSceneLoader : MonoBehaviour
     public void Load(ScriptableScene level)
     {
         _gamedata.currentLevel = level;
-        SceneManager.LoadScene(level.scene.handle);
+        SceneManager.LoadScene(level.scene.name);
     }
 }

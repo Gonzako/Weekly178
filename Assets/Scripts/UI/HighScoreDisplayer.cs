@@ -13,6 +13,8 @@ public class HighScoreDisplayer : MonoBehaviour
     void Start()
     {
         _scoreElements = _scoreParent.GetComponentsInChildren<ScoreUI>();
+        foreach (ScoreUI ui in _scoreElements)
+            ui.gameObject.SetActive(false);
     }
 
     public void SetData()

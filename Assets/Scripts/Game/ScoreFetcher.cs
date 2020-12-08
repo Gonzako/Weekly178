@@ -19,6 +19,7 @@ public class ScoreFetcher : MonoBehaviour
         Debug.Log("test");
         RestClient.GetArray<HighScore>(_api + "/scores/"+_data.currentLevel.scene_id).Then(res => {
             Debug.Log(res);
+            _highscores._scores = new List<HighScore>();
             _highscores._scores.AddRange(res);
             onDataUpdated.Raise(_highscores);         
         });  
@@ -27,8 +28,10 @@ public class ScoreFetcher : MonoBehaviour
     public void AddHighScore(int score)
     {
         Debug.Log("adding " + score);
-        HighScore hscore = new HighScore("tester", score, _data.currentLevel.scene_id);
+        HighScore hscore = new HighScore(_data.nickname, score, _data.currentLevel.scene_id);
         RestClient.Post<HighScore>((_api + "/scores/new"), hscore);
+
+        GetHighScore();
     }
 }
 

@@ -9,7 +9,7 @@ public class ScoreTracker : MonoBehaviour
     [SerializeField] private FloatVariable _timer = null;
     [SerializeField] private bool _shouldTrack = true;
 
-    [SerializeField] private const int basescore = 10000;
+    [SerializeField] private const int basescore = 999999;
     [SerializeField] private const int multiplier = 10;
     [SerializeField] private IntGameEvent onScoreCalculated;
 
@@ -27,7 +27,7 @@ public class ScoreTracker : MonoBehaviour
     public void CalculateScore()
     {
         _shouldTrack = false;
-        _Score.Value = basescore / (int)_timer * multiplier;
+        _Score.Value = (int)(basescore / _timer);
         onScoreCalculated.Raise(_Score.Value);
     }
 }

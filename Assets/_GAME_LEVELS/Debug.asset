@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42f06ff6cc543ea942180e019f0fc8d, type: 3}
-  m_Name: UIView_General
+  m_Script: {fileID: 11500000, guid: a4925b921aaefa74e9d610abf8d5f7c8, type: 3}
+  m_Name: Debug
   m_EditorClassIdentifier: 
-  CategoryName: General
-  DatabaseType: 2
-  Names:
-  - Unnamed
-  - Navigation
-  - HowTo
-  - NicknamePrompt
+  preview: {fileID: 0}
+  scene: {fileID: 102900000, guid: a761bf83a9afda840a5d51bc612a5291, type: 3}
+  scene_id: 0a34c261-a1bf-4beb-a9c5-e7620f2ddb15
