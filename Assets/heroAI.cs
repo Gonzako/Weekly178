@@ -39,8 +39,7 @@ public class heroAI : MonoBehaviour
 
     [SerializeField]
     EnviromentLookup table = null;
-    [SerializeField]
-    Grid gridHolder = null;
+
     [SerializeField]
     Tilemap obstaclesTilemap = null;
     [SerializeField]
