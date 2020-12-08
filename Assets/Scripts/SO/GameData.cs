@@ -7,4 +7,5 @@ public class GameData : ScriptableObject
 {
     public ScriptableScene currentLevel;
     public string nickname;
+    public ScriptableObject[] _gameLevels;
 }

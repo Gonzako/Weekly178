@@ -9,6 +9,7 @@ public class GameSceneLoader : MonoBehaviour
     [SerializeField] private ScriptableSceneEvent onLoadLevel;
     [SerializeField] private GameData _gamedata;
 
+
     public static GameSceneLoader instance;
 
     private void Start()
