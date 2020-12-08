@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MCMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 1850fbb4bebe6384d8b3bfa66d75722d,
+  m_Shader: {fileID: -6465566751694194690, guid: 2155b9f7e5d346940ba832fd952f7710,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ALPHATEST_ON _SPECULAR_SETUP
   m_LightmapFlags: 4
@@ -70,8 +70,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
+    - Preview: 0
     - Vector1_29EB0B21: 0.439
     - Vector1_496F14EB: 0
+    - Vector1_8CEEC536: 0.289
+    - Vector1_A88757E4: 0.206
     - _AlphaClip: 1
     - _Blend: 0
     - _BlendOp: 0
@@ -125,6 +128,7 @@ Material:
     - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
+    - Color_928E644C: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}

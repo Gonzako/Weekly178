@@ -30,6 +30,8 @@ public class DragPreview : MonoBehaviour
     Plane obstaclePlane;
     ObstacleDragger dragger;
     private Color defaultColor;
+    [SerializeField]
+    EnviromentLookup table;
     #endregion
 
     #region UnityCallBacks
@@ -62,7 +64,7 @@ public class DragPreview : MonoBehaviour
         
         if (!dragging)
         {
-            if (tile != null)
+            if (tile != null && table._Movables.Contains(tile))
                 previewer.sprite = tile.sprite;
             else
                 previewer.sprite = null; 

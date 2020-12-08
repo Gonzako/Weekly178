@@ -19,9 +19,10 @@ public class heroAI : MonoBehaviour
     public ScriptableObjectArchitecture.FloatVariable waitTime;
     public ScriptableObjectArchitecture.FloatVariable DashTime;
     public Ease movementEase;
+    public EnviromentLookup Table { get { return table; } }
 
     public static Vector3Int currentCell;
-    public static event Action onCharacterMove;
+    public static event Action<Tile> onCharacterMove;
     #endregion
 
     #region PrivateFields
@@ -45,17 +46,27 @@ public class heroAI : MonoBehaviour
     [SerializeField]
     Animator animator;
 
-    private Tile currentGround { get { return backgroundTilemap.GetTile(
+    public Tile currentGround { get { return backgroundTilemap.GetTile(
                                                         backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
-    private Tile nextGround { get { return backgroundTilemap.GetTile
+    public Tile nextGround { get { return backgroundTilemap.GetTile
                                                      (
                                                      backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one-Vector3.up)) 
                                                      + currentDir.toVector3Int()
                                                      ) as Tile; } }
     
-    private Tile nextObstacle { get { return obstaclesTilemap.GetTile(
+    public Tile nextObstacle { get { 
+                
+                return obstaclesTilemap.GetTile(
                                                  obstaclesTilemap.WorldToCell(
-                                                    Vector3.Scale(transform.position, Vector3.one - Vector3.up)) + currentDir.toVector3Int()) as Tile; } }
+                                                    Vector3.Scale(transform.position, Vector3.one - Vector3.up)) + currentDir.toVector3Int()) as Tile;       
+        } }
+
+
+    public Vector3Int nextCell { get
+        {
+            return backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one - Vector3.up))
+            + currentDir.toVector3Int();
+        } }
 
     private Coroutine moveRoutine;
     #endregion
@@ -112,9 +123,9 @@ public class heroAI : MonoBehaviour
         {
             if(groundTile != null && !table._Unwalkables.Contains(groundTile))
             {
-                if(obstacleTile == null /* || !table._Obstacles.Contains(obstacleTile)*/)
+                if(obstacleTile == null  /*||  !table._Obstacles.Contains(obstacleTile)*/)
                 {
-
+                    onCharacterMove?.Invoke(nextGround);
                     yield return StartCoroutine(moveCharacter());
                     break;
                 }
