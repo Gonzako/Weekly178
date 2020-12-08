@@ -32,6 +32,9 @@ public class heroAI : MonoBehaviour
     Direction currentDir = Direction.Up;
 
     [SerializeField]
+    float jumpPower = 2f;
+
+    [SerializeField]
     Transform visuals = null;
 
     [SerializeField]
@@ -50,7 +53,7 @@ public class heroAI : MonoBehaviour
                                                         backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
     public Tile nextGround { get { return backgroundTilemap.GetTile
                                                      (
-                                                     backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one-Vector3.up)) 
+                                                     backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one - Vector3.up)) 
                                                      + currentDir.toVector3Int()
                                                      ) as Tile; } }
     
@@ -103,7 +106,10 @@ public class heroAI : MonoBehaviour
 
     #region PublicMethods
 
-
+    public static bool isNearPlayer(Vector3Int desired)
+    {
+        return desired.x == heroAI.currentCell.x && desired.y == heroAI.currentCell.y;
+    }
 
     #endregion
 
@@ -169,7 +175,7 @@ public class heroAI : MonoBehaviour
         currentCell = backgroundTilemap.WorldToCell(transform.position);
 
         currentCell.z = 0;
-        Tween t = visuals.DOMove(transform.position, dashTime).SetEase(movementEase);
+        Tween t = visuals.DOJump(transform.position, jumpPower,1,dashTime).SetEase(movementEase);
         t.SetAutoKill(false);
         t.Play();
 
@@ -178,6 +184,9 @@ public class heroAI : MonoBehaviour
         animator.SetBool("Walking", true);
         visuals.position = transform.position;
     }
+
+
+
 
     #endregion
 }
@@ -244,4 +253,5 @@ public static class DirectionExtentions
         }
         return Direction.Up;
     }
+
 }
