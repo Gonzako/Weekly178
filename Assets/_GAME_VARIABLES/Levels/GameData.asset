@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d580c6067d50af34c84533e8b4273218, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  currentLevel: {fileID: 11400000, guid: 829794f47a56b7b49a6ac134e3efdbff, type: 2}
+  currentLevel: {fileID: 11400000, guid: f93d8d2d87a42c54cbdba3ac4d2102b9, type: 2}
+  nickname: 
+  _gameLevels:
+  - {fileID: 11400000, guid: e541268320d964048b9d0916e27a1e56, type: 2}
+  - {fileID: 11400000, guid: f93d8d2d87a42c54cbdba3ac4d2102b9, type: 2}
+  - {fileID: 0}
