@@ -17,17 +17,22 @@ public class heroAI : MonoBehaviour
 
     #region PublicFields
     public ScriptableObjectArchitecture.FloatVariable waitTime;
+    public ScriptableObjectArchitecture.FloatVariable DashTime;
     public Ease movementEase;
+    public EnviromentLookup Table { get { return table; } }
 
     public static Vector3Int currentCell;
-    public static event Action onCharacterMove;
+    public static event Action<Tile> onCharacterMove;
     #endregion
 
     #region PrivateFields
-    private const float dashTime = 0.6f;
+    private float dashTime { get { return DashTime.Value; } }
 
     [SerializeField]
     Direction currentDir = Direction.Up;
+
+    [SerializeField]
+    float jumpPower = 2f;
 
     [SerializeField]
     Transform visuals = null;
@@ -44,17 +49,27 @@ public class heroAI : MonoBehaviour
     [SerializeField]
     Animator animator;
 
-    private Tile currentGround { get { return backgroundTilemap.GetTile(
+    public Tile currentGround { get { return backgroundTilemap.GetTile(
                                                         backgroundTilemap.WorldToCell(transform.position)) as Tile; } }
-    private Tile nextGround { get { return backgroundTilemap.GetTile
+    public Tile nextGround { get { return backgroundTilemap.GetTile
                                                      (
-                                                     backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one-Vector3.up)) 
+                                                     backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one - Vector3.up)) 
                                                      + currentDir.toVector3Int()
                                                      ) as Tile; } }
     
-    private Tile nextObstacle { get { return obstaclesTilemap.GetTile(
+    public Tile nextObstacle { get { 
+                
+                return obstaclesTilemap.GetTile(
                                                  obstaclesTilemap.WorldToCell(
-                                                    Vector3.Scale(transform.position, Vector3.one - Vector3.up)) + currentDir.toVector3Int()) as Tile; } }
+                                                    Vector3.Scale(transform.position, Vector3.one - Vector3.up)) + currentDir.toVector3Int()) as Tile;       
+        } }
+
+
+    public Vector3Int nextCell { get
+        {
+            return backgroundTilemap.WorldToCell(Vector3.Scale(transform.position, Vector3.one - Vector3.up))
+            + currentDir.toVector3Int();
+        } }
 
     private Coroutine moveRoutine;
     #endregion
@@ -91,7 +106,10 @@ public class heroAI : MonoBehaviour
 
     #region PublicMethods
 
-
+    public static bool isNearPlayer(Vector3Int desired)
+    {
+        return desired.x == heroAI.currentCell.x && desired.y == heroAI.currentCell.y;
+    }
 
     #endregion
 
@@ -111,9 +129,9 @@ public class heroAI : MonoBehaviour
         {
             if(groundTile != null && !table._Unwalkables.Contains(groundTile))
             {
-                if(obstacleTile == null /* || !table._Obstacles.Contains(obstacleTile)*/)
+                if(obstacleTile == null  /*||  !table._Obstacles.Contains(obstacleTile)*/)
                 {
-
+                    onCharacterMove?.Invoke(nextGround);
                     yield return StartCoroutine(moveCharacter());
                     break;
                 }
@@ -140,7 +158,6 @@ public class heroAI : MonoBehaviour
 
     private IEnumerator moveCharacter()
     {
-
         animator.SetBool("Walking", true);
         if(currentDir == Direction.Left)
         {
@@ -150,18 +167,26 @@ public class heroAI : MonoBehaviour
         {
             visuals.DOScaleX(Mathf.Abs(visuals.localScale.x), dashTime * 0.7f).SetEase(movementEase);
         }
+
+
+
         transform.localPosition += currentDir.toVector3();
+
         currentCell = backgroundTilemap.WorldToCell(transform.position);
+
         currentCell.z = 0;
-        Tween t = visuals.DOMove(transform.position, dashTime).SetEase(movementEase);
+        Tween t = visuals.DOJump(transform.position, jumpPower,1,dashTime).SetEase(movementEase);
         t.SetAutoKill(false);
         t.Play();
 
         yield return new WaitUntil(()=>t.IsComplete());
         t.Kill();
-        animator.SetBool("Walking", false);
+        animator.SetBool("Walking", true);
         visuals.position = transform.position;
     }
+
+
+
 
     #endregion
 }
@@ -228,4 +253,5 @@ public static class DirectionExtentions
         }
         return Direction.Up;
     }
+
 }

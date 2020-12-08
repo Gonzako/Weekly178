@@ -22,6 +22,8 @@ public class ObstacleDragger : MonoBehaviour
     #endregion
 
     #region PrivateFields
+    [SerializeField]
+    EnviromentLookup table;
 
     [SerializeField]
     Tilemap tileMapObstacle;
@@ -61,8 +63,9 @@ public class ObstacleDragger : MonoBehaviour
             previousCellPos = cellPos;
             removedTile = cell;
 
-            if (cell != null)
+            if (cell != null && table._Movables.Contains(cell))
             {
+
                 onPickupTile?.Invoke(cell);
 
                 tileMapObstacle.SetTile(cellPos, null);
@@ -105,7 +108,14 @@ public class ObstacleDragger : MonoBehaviour
 
     public bool isLegalTile(Vector3Int cellPos)
     {
-        return !isNearPlayer(cellPos) && tileMapObstacle.GetTile(cellPos) == null && ground.GetTile(cellPos) != null;
+
+        var obstcl = tileMapObstacle.GetTile(cellPos) as Tile;
+        var groundTile = ground.GetTile(cellPos) as Tile;
+
+        return !isNearPlayer(cellPos) && obstcl == null
+                                      && ground.GetTile(cellPos) != null
+                                      && !table._Unwalkables.Contains(groundTile)
+                                      && !table._Traps.Contains(groundTile);
     }
 
     void OnEnable()
