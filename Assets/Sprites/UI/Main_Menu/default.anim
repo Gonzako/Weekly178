@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hovering
+  m_Name: default
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,7 +22,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -12.7
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -32,8 +32,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.x
-    path: 
+    attribute: m_Pivot.x
+    path: Image
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -41,7 +41,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 121
+        value: -1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -51,8 +51,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: 
+    attribute: m_Pivot.y
+    path: Image
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -64,15 +64,15 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
-      attribute: 1460864421
+      path: 83635035
+      attribute: 3640387206
       script: {fileID: 0}
       typeID: 224
       customType: 28
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 0
-      attribute: 538195251
+      path: 83635035
+      attribute: 2952582672
       script: {fileID: 0}
       typeID: 224
       customType: 28
@@ -104,7 +104,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -12.7
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -114,8 +114,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.x
-    path: 
+    attribute: m_Pivot.x
+    path: Image
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -123,7 +123,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 121
+        value: -1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -133,8 +133,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: 
+    attribute: m_Pivot.y
+    path: Image
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []
