@@ -39,4 +39,10 @@ public class GameSceneLoader : MonoBehaviour
         Debug.Log(currentIndex + 1);
         SceneManager.LoadScene(_gamedata._gameLevels[currentIndex + 1].scene.name);
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+       
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   preview: {fileID: 0}
-  scene: {fileID: 0}
+  scene: {fileID: 102900000, guid: 5a30ab5980095e948bcbb0c5cdc25e68, type: 3}
   scene_id: eff0da55-eec5-4967-92b6-edb754c9de78
