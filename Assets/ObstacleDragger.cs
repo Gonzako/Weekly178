@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using ScriptableObjectArchitecture;
 
 /// 
 /// Copyright (c) 2020 All Rights Reserved
@@ -18,6 +19,9 @@ public class ObstacleDragger : MonoBehaviour
     #region PublicFields
     public static event Action<Tile> onPickupTile;
     public static event Action<Tile, Vector3> onDropTile;
+    [SerializeField] private GameEvent onPickup;
+    [SerializeField] private GameEvent onDrop;
+
 
     #endregion
 
@@ -67,6 +71,7 @@ public class ObstacleDragger : MonoBehaviour
             {
 
                 onPickupTile?.Invoke(cell);
+                onPickup.Raise();
 
                 tileMapObstacle.SetTile(cellPos, null);
 
@@ -90,12 +95,15 @@ public class ObstacleDragger : MonoBehaviour
                 tileMapObstacle.SetTile(cellPos, removedTile);
 
                 onDropTile?.Invoke(removedTile, point);
+                onDrop.Raise();
             }
             else
             {
                 tileMapObstacle.SetTile(previousCellPos, removedTile);
 
                 onDropTile?.Invoke(removedTile, tileMapObstacle.CellToWorld(previousCellPos));
+                onDrop.Raise();
+
             }
 
 

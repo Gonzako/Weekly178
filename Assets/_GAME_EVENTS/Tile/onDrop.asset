@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4925b921aaefa74e9d610abf8d5f7c8, type: 3}
-  m_Name: Level 1
+  m_Script: {fileID: 11500000, guid: 7a78c7052899406438e9fc79486b45c0, type: 3}
+  m_Name: onDrop
   m_EditorClassIdentifier: 
-  preview: {fileID: 0}
-  scene: {fileID: 102900000, guid: a1aa8a544a6aee7459c9cac6e0867816, type: 3}
-  scene_id: d088f03b-bf1e-4c76-af42-8aa7100dd31b

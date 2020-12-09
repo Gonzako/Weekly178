@@ -18,6 +18,7 @@ public class heroAI : MonoBehaviour
     #region PublicFields
     public ScriptableObjectArchitecture.FloatVariable waitTime;
     public ScriptableObjectArchitecture.FloatVariable DashTime;
+    public ScriptableObjectArchitecture.GameEvent onCharacterWalk;
     public Ease movementEase;
     public EnviromentLookup Table { get { return table; } }
 
@@ -177,6 +178,7 @@ public class heroAI : MonoBehaviour
         Tween t = visuals.DOJump(transform.position, jumpPower,1,dashTime).SetEase(movementEase);
         t.SetAutoKill(false);
         t.Play();
+        onCharacterWalk.Raise();
 
         yield return new WaitUntil(()=>t.IsComplete());
         t.Kill();
