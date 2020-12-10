@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level 3
   m_EditorClassIdentifier: 
   preview: {fileID: 0}
-  scene: {fileID: 102900000, guid: 88c9c20ffdb7beb44896d4bc1630719b, type: 3}
+  scenePath: Level3
   scene_id: bf4e8813-368e-458c-b373-71d78c0437b6

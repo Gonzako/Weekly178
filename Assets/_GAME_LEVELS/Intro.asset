@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Intro
   m_EditorClassIdentifier: 
   preview: {fileID: 0}
-  scene: {fileID: 102900000, guid: 121052ddb932ca0488ce694995e3915c, type: 3}
+  scenePath: Menu
   scene_id: 93b252f6-db09-417d-8689-7ae191921855

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EndScene
   m_EditorClassIdentifier: 
   preview: {fileID: 0}
-  scene: {fileID: 102900000, guid: ccb5a02c10ba94b40a4c09ac0b04547a, type: 3}
+  scenePath: EndScene
   scene_id: 380ce38b-f1cc-4f74-a5f6-4d7e2f95dce9

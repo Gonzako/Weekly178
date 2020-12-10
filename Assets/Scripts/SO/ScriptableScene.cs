@@ -9,6 +9,6 @@ using UnityEngine.SceneManagement;
 public class ScriptableScene : ScriptableObject
 {
     public Sprite preview;
-    public SceneAsset scene;
-    public string scene_id = Guid.NewGuid().ToString();
+    public string scenePath;
+    public string scene_id = Guid.NewGuid().ToString(); 
 }

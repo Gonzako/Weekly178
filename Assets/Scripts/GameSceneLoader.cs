@@ -32,15 +32,14 @@ public class GameSceneLoader : MonoBehaviour
     public void Load(ScriptableScene level)
     {
         _gamedata.currentLevel = level;
-        SceneManager.LoadScene(level.scene.name);
+        SceneManager.LoadScene(level.scenePath);
     }
 
     public void LoadNextLevel()
     {
         int currentIndex = _gamedata._gameLevels.IndexOf(_gamedata.currentLevel);
         if (currentIndex + 1 > _gamedata._gameLevels.Count - 1) return;
-        Debug.Log(currentIndex + 1);
-        SceneManager.LoadScene(_gamedata._gameLevels[currentIndex + 1].scene.name);
+        SceneManager.LoadScene(_gamedata._gameLevels[currentIndex + 1].scenePath);
     }
 
     public void Restart()
@@ -51,6 +50,6 @@ public class GameSceneLoader : MonoBehaviour
     
     public void LoadMenu()
     {
-        SceneManager.LoadScene(_menu.scene.name);
+        SceneManager.LoadScene(_menu.scenePath);
     }
 }

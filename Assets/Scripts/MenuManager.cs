@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] ScriptableScene _entryLevel;
 
+
+
     public void NewGame()
     {
-        SceneManager.LoadScene(_entryLevel.scene.name);
+        Debug.Log(_entryLevel.scenePath);
+        SceneManager.LoadScene(_entryLevel.scenePath);
     }
 }
+
