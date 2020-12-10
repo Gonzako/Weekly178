@@ -9,6 +9,8 @@ public class GameSceneLoader : MonoBehaviour
     [SerializeField] private ScriptableSceneEvent onLoadLevel;
     [SerializeField] private GameData _gamedata;
 
+    [SerializeField] private ScriptableScene _menu;
+
 
     public static GameSceneLoader instance;
 
@@ -44,5 +46,10 @@ public class GameSceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-       
+      
+    
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(_menu.scene.name);
+    }
 }

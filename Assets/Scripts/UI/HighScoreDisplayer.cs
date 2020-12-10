@@ -15,12 +15,14 @@ public class HighScoreDisplayer : MonoBehaviour
         _scoreElements = _scoreParent.GetComponentsInChildren<ScoreUI>();
         foreach (ScoreUI ui in _scoreElements)
             ui.gameObject.SetActive(false);
+
+        _scoreElements[0].gameObject.SetActive(true);
     }
 
     public void SetData()
     {
         Debug.Log("set");
-        for(int x = 0; x < _score._scores.Count; x++)
+        for(int x = 1; x < _score._scores.Count; x++)
         {
             if (x > _scoreElements.Length) return;
 

@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreUI : MonoBehaviour
 {
-    [SerializeField] Text position;
-    [SerializeField] Text nickname;
-    [SerializeField] Text points;
+    [SerializeField] TextMeshProUGUI position;
+    [SerializeField] TextMeshProUGUI nickname;
+    [SerializeField] TextMeshProUGUI points;
 
   public void SetScore(HighScore score)
     {
