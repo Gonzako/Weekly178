@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d580c6067d50af34c84533e8b4273218, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  currentLevel: {fileID: 11400000, guid: e541268320d964048b9d0916e27a1e56, type: 2}
-  nickname: 
+  currentLevel: {fileID: 11400000, guid: b4ae13e37a3f9424f8dadae63ad035d8, type: 2}
+  nickname: jesus
   _gameLevels:
   - {fileID: 11400000, guid: e541268320d964048b9d0916e27a1e56, type: 2}
   - {fileID: 11400000, guid: b4ae13e37a3f9424f8dadae63ad035d8, type: 2}
   - {fileID: 11400000, guid: a20599dce0c43804281420c6d48b1599, type: 2}
   - {fileID: 11400000, guid: aae3ded48bf769f47be243adeafc6ff9, type: 2}
-  - {fileID: 11400000, guid: 4f02be3ddadbf0d43b7d65750e39200b, type: 2}
+  - {fileID: 11400000, guid: efa3be5e0647f884ab5c40fc7a76e106, type: 2}
