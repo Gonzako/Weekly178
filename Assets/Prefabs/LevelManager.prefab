@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6292153508560923785}
   - component: {fileID: 6292153508560923784}
-  - component: {fileID: 6292153508560923791}
+  - component: {fileID: 1464797161}
+  - component: {fileID: 507307756392044168}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -46,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLoadLevel: {fileID: 11400000, guid: 21225337b416da145be554d5f3582250, type: 2}
   _gamedata: {fileID: 11400000, guid: 0639da29621407f4d83e5919134711fa, type: 2}
---- !u!114 &6292153508560923791
+  _menu: {fileID: 0}
+--- !u!114 &1464797161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,20 +57,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 6292153508560923790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd77ea9b4e197ed46b65afe66bb0bdd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
-  _event: {fileID: 11400000, guid: 21225337b416da145be554d5f3582250, type: 2}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 14ed07110d307cd44881243ee6c90d91,
+    type: 2}
+  _event: {fileID: 11400000, guid: 14ed07110d307cd44881243ee6c90d91, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 507307756392044168}
+        m_MethodName: delayedCall
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 4.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &507307756392044168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292153508560923790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73e11fa0edb473468b775fd73a2d23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Intent: 
+  onWaitFinished:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 6292153508560923784}
-        m_MethodName: Load
-        m_Mode: 0
+        m_MethodName: Restart
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -77,4 +107,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _debugValue: {fileID: 0}
