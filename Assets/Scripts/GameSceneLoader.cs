@@ -40,6 +40,7 @@ public class GameSceneLoader : MonoBehaviour
         int currentIndex = _gamedata._gameLevels.IndexOf(_gamedata.currentLevel);
         if (currentIndex + 1 > _gamedata._gameLevels.Count - 1) return;
         SceneManager.LoadScene(_gamedata._gameLevels[currentIndex + 1].scenePath);
+        _gamedata.currentLevel = _gamedata._gameLevels[currentIndex+1];
     }
 
     public void Restart()

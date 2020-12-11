@@ -72,7 +72,7 @@ public class DragPreview : MonoBehaviour
         {
             if (dragger.isLegalTile(cellPos))
             {
-                previewer.sharedMaterial.SetColor("_Color", defaultColor);
+                previewer.sharedMaterial.SetColor("_Color", Color.white);
             }
             else
             {
