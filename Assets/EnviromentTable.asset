@@ -35,8 +35,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 042539e3da017294dac71b3a48a6ebca, type: 2}
   - {fileID: 11400000, guid: 097e1e5c88095404aaead97ef824d8da, type: 2}
   Traps:
+  - {fileID: 11400000, guid: 356ec06b16f63c146aa874dfc9d1349b, type: 2}
+  - {fileID: 11400000, guid: cea6dd4ee7bd3214eb87df0d88336b48, type: 2}
+  - {fileID: 11400000, guid: a09eb250d06fd4246b016e0283f934ea, type: 2}
+  - {fileID: 11400000, guid: f3568cac7167b2e4d9c3c9dade535687, type: 2}
   - {fileID: 11400000, guid: 2dab2f5bb5b73e34f8c3a5ae68891c20, type: 2}
-  - {fileID: 11400000, guid: 84a4177d58a8f4441b6a1f9c1ad4a119, type: 2}
   Movables:
   - {fileID: 11400000, guid: a3511cecc34225c4daaf04ef0432fe9a, type: 2}
   - {fileID: 11400000, guid: 5b0c856d02790b448843ac7be95adc84, type: 2}
