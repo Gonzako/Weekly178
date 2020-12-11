@@ -5425,56 +5425,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &221244993 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7858390880966206050, guid: 8fcba651fce1b524db11de1d77fdac56,
-    type: 3}
-  m_PrefabInstance: {fileID: 322650975}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &221244994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221244993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094217878ac039741aa004dbc1f81b20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugFields: 0
-  _enableGizmoDebugging: 1
-  _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
-  _event: {fileID: 11400000, guid: b5ca872504a428d41a956c5ab212174f, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 221244996}
-        m_MethodName: AddHighScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _debugValue: 0
---- !u!114 &221244996 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7858390880966206049, guid: 8fcba651fce1b524db11de1d77fdac56,
-    type: 3}
-  m_PrefabInstance: {fileID: 322650975}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221244993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c2746da10f68994db3c47b58f334cc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &262452406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6687831994046843295, guid: b6b5d0c18b2882b4bbe19e77d0d9279e,
@@ -11300,11 +11250,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1607593798071770862, guid: 8247f579f2980424bbb219816aa3302d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1819483038527405204, guid: 8247f579f2980424bbb219816aa3302d,
         type: 3}
@@ -23635,8 +23580,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6292153508560923791, guid: fc6796afdcc5ed740a2f3a9588043552, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc6796afdcc5ed740a2f3a9588043552, type: 3}
 --- !u!1 &1749452765
 GameObject:
