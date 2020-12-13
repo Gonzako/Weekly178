@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -10971,7 +10971,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1813615703, guid: cce165773a86a814c9ece3ef5b73286a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7440343
+      value: 1.9332054
       objectReference: {fileID: 0}
     - target: {fileID: 5261364731932206008, guid: cce165773a86a814c9ece3ef5b73286a,
         type: 3}
@@ -11099,6 +11099,42 @@ PrefabInstance:
     - target: {fileID: 979641997, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_text
+      value: 00:32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 31.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_overflowMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_margin.x
+      value: -0.51068115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_margin.y
+      value: 1.8552246
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_margin.z
+      value: 1.4315338
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234371425, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
+      propertyPath: m_margin.w
+      value: 2.44458
       objectReference: {fileID: 0}
     - target: {fileID: 67321454715677762, guid: 8247f579f2980424bbb219816aa3302d,
         type: 3}
@@ -23888,7 +23924,7 @@ PrefabInstance:
     - target: {fileID: 3129647514436304036, guid: 8d7d78aa047bf1a4c9ca6c678b68e3cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1280344
+      value: 1.3172054
       objectReference: {fileID: 0}
     - target: {fileID: 3129647514436304036, guid: 8d7d78aa047bf1a4c9ca6c678b68e3cc,
         type: 3}
