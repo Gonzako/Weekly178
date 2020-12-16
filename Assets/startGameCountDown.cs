@@ -21,9 +21,10 @@ public class startGameCountDown : MonoBehaviour
                     .SetLoops(3, LoopType.Restart).SetDelay(0.1f);
         sizeTween.onStepComplete += fillNumber;
         
+        sizeTween.onComplete += () => textComp.text = "Go!";
 
         seq.Append(sizeTween);
-        seq.onComplete +=  () => textComp.text = "Go!";
+        seq.Append(textComp.DOColor(Color.clear, 0.3f).SetDelay(0.1f));
 
         seq.SetEase(Ease.OutQuart);
         seq.Play();
