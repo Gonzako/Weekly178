@@ -10971,7 +10971,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1813615703, guid: cce165773a86a814c9ece3ef5b73286a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3082134
+      value: 1.7455521
       objectReference: {fileID: 0}
     - target: {fileID: 5261364731932206008, guid: cce165773a86a814c9ece3ef5b73286a,
         type: 3}
@@ -11099,32 +11099,6 @@ PrefabInstance:
     - target: {fileID: 979641997, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321347627, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: b279826ebe2773d4198bb3e5e700ac6c,
-        type: 2}
-    - target: {fileID: 1321347627, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321347627, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321347627, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321347627, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -1746106773019042749, guid: b279826ebe2773d4198bb3e5e700ac6c,
-        type: 2}
-    - target: {fileID: 1321347627, guid: 8247f579f2980424bbb219816aa3302d, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 67321454715677762, guid: 8247f579f2980424bbb219816aa3302d,
         type: 3}
@@ -23919,7 +23893,7 @@ PrefabInstance:
     - target: {fileID: 3129647514436304036, guid: 8d7d78aa047bf1a4c9ca6c678b68e3cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.69221336
+      value: 1.1295521
       objectReference: {fileID: 0}
     - target: {fileID: 3129647514436304036, guid: 8d7d78aa047bf1a4c9ca6c678b68e3cc,
         type: 3}
